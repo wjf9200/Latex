@@ -20,3 +20,328 @@
 ```latex
 {\songti\zihao{-4}本人郑重声明：所提交的毕业论文（设计）。}
 ```
+## 表格设置
+### 长表格：
+```latex
+%长表格：
+\begin{longtable}{ll}
+ %\caption{长表格}\label{tab1}\\
+ % 表格“首页”显示内容
+ \toprule[1.9pt]
+ 
+ \makebox[0.3\textwidth][l]{符号} & \makebox[0.5\textwidth][l]{符号意义} \\
+ \hline
+ \endfirsthead
+ 
+ \toprule[1.9pt]
+ % \makebox[0.07\textwidth][c]{$n1$} & \makebox[0.07\textwidth][c]{$n2$}
+ %& \makebox[0.07\textwidth][c]{$n3$} & \makebox[0.07\textwidth][c]{$n4$}
+ %&\makebox[0.07\textwidth][c]{$n1$} & \makebox[0.07\textwidth][c]{$n2$} 
+ %& \makebox[0.07\textwidth][c]{$n3$} & \makebox[0.07\textwidth][c]{$n4$}\\
+ %\hline
+ \endhead
+ 
+ % 表格“首页底部”，表格最后显示内容
+ \bottomrule[1.9pt]
+ %\multicolumn{8}{c}{Continued on next page}\\
+ \endfoot
+ 
+ % 表格“后续尾页”，表格最后显示内容
+ \bottomrule[1.9pt]
+ \endlastfoot
+ $PortConnectivity$  & 港口连接度\\
+ $\rho$    & 斯皮尔曼相关系数 \\
+ ${{\alpha }_{p}}$ & PCA中累计贡献率\\
+ $w_{j}$ &  熵权法中权重  \\
+ $L(\theta)$ &  XGBoost损失函数  \\
+ $\varphi_{i}(f)$ &  $f$模型第$i$个特征SHAP值  \\
+ ${learning}$\_${rate}$ &   学习率 \\
+ $n$\_${estimators}$    & 树模型中树的数量    \\
+ ${max}$\_${depth}$    &  最大树的深度  \\ 
+ $min$\_$child$\_$weight $    &   叶子节点中最小样本权重和  \\ 
+ $gamma $    &   分裂节点时所需的最小损失减小  \\ 
+ 
+\end{longtable}
+```
+### 普通表格：
+```latex
+\begin{table}[h]
+ \centering
+ \begin{tabular}{|l|l|l|l|l|l|l|}
+  \hline
+  & XGBoost & 决策树 & 随机森林   & LGBM   & Adaboost & LGBM   \\ \hline
+  R2 Score & 0.9843  & 1   & 0.7526 & 0.9506 & 0.852    & 0.9881 \\ \hline
+  MAE      & 0.0046  & 0   & 0.1887 & 0.0079 & 0.0156   & 0.0039 \\ \hline
+  MSE      & 3.5712  & 0   & 0.0006 & 0.0003 & 0.0003   & 2.5423 \\ \hline
+  RMSE     & 0.006   & 0   & 0.0237 & 0.0106 & 0.0183   & 0.005  \\ \hline
+ \end{tabular}
+\end{table}
+```
+### 普通表格颜色填充：
+```latex
+\begin{table}[!ht]
+ \centering
+ \begin{tabular}{|l|l|l|l|l|l|l|}
+  \hline
+  \rowcolor[HTML]{D9E1F2}
+  &XGBoost & 决策树 & 随机森林 & LGBM & Adaboost & LGBM \\ \hline
+  R2 Score & 0.9843 & 1.0 & 0.7526 & 0.9506 & 0.852 & 0.9881 \\ \hline
+  \rowcolor[HTML]{D9E1F2}
+  MAE & 0.0046 & 0.0 & 0.1887 & 0.0079 & 0.0156 & 0.0039 \\ \hline
+  MSE & 3.5712 & 0.0 & 0.0006 & 0.0003 & 0.0003 & 2.5423 \\ \hline
+  \rowcolor[HTML]{D9E1F2}
+  RMSE & 0.006 & 0.0 & 0.0237 & 0.0106 & 0.0183 & 0.005 \\ \hline
+ \end{tabular}
+\end{table}
+```
+### 表格可变长度1：
+```latex
+\begin{table}[h!]
+ \centering
+ \small
+ \tabcolsep 2.5pt
+ % \small
+ \begin{tabular}{ccc}%{p{60pt}<{\centering}|p{60pt}<{\centering}p{180pt}<{\raggedright}}
+  \toprule[1.9pt]
+  \makebox[0.1\textwidth][c]{序号} &  \makebox[0.1\textwidth][c]{符号} &\makebox[0.3\textwidth][c]{意义} \\ 
+  \hline
+  1 & $N$ & 某地区总人口 \\
+  2 & $s(t)$ & 第$t$天健康者的人数 \\
+  3 & $\hat{\lambda}(t)$ & 拟合的关于第$t$天的感染率 \\
+  4 & $\hat{\mu}(t)$ & 拟合的关于第$t$天的移除率 \\
+  5 & $\lambda^{(0)}(k)$ & GM(1,1)模型原数据列的级比 \\
+  6 & $\lambda_y^{(0)}(k)$ & 平移后的数据列的级比 \\
+  7 & $\delta(k)$ & GM(1,1)中的相对误差\\
+  8 & $\rho(t)$ & 第$k$个数据的级比偏差 \\
+  9 & $\eta_{t}$ & 第$t$年的影响程度 \\
+  10 & $\alpha$ & 修正感染率和移除率的系数 \\
+  \bottomrule[1.8pt]
+ \end{tabular}
+\end{table}
+```
+### 表格可变长度2：
+```latex
+ \begin{table*}[h!]
+ \centering
+ \small
+ \tabcolsep 2.5pt
+ \caption{主次道路参数表}
+ \begin{tabular*}{0.65\linewidth}{p{50pt}<{\centering}p{50pt}<{\centering}
+   p{50pt}<{\centering}p{60pt}<{\centering}p{60pt}<{\centering}}
+  \toprule
+  道路类型  &  主干路  &  支干路  &  小区内宽道路  &  小区内窄道路  \\
+  \midrule
+  行车速度  & 50 km / h & 40 km / h & 30 km / h & 20 km / h \\
+  车道数  & 4 & 3 & 2 & 1 \\
+  车道数  & 4 & 3 & 2 & 1 \\
+  车道数  & 4 & 3 & 2 & 1 \\
+  \bottomrule
+ \end{tabular*}
+ \label{tab10}
+\end{table*}
+```
+### 整个页面
+```latex
+ \begin{table}[hbt!]
+  \caption {平均单价与销售总量的关系}
+  \resizebox{\textwidth}{!}{%
+   \begin{tabular}{>{\centering\arraybackslash}m{3cm}   >{\centering\arraybackslash}m{8cm} >{\centering\arraybackslash}m{6cm}   }
+    \toprule[1.9pt]
+    品类 & 平均单价与销售总量的关系 &    $R^{2} $\\  \hline
+    花菜类&$P_{t}$=0.0031$x^{2}$-0.1789$x$+15.815&0.143\\
+    花叶类&$P_{t}$=4E-05$x^{2}$-0.0125$x$ +5.9424&0.1417\\
+    辣椒类&$P_{t}$=8E-05$x^{2}$-0.025$x$+7.4026&0.269\\
+    茄类 &$P_{t}$=0.0002$x^{2}$-0.0194$x$+7.8704&0.0337\\
+    食用菌&$P_{t}$=0.0011$x^{2}$-0.1513$x$+10.78&0.235\\
+    水生根茎类&$P_{t}$=0.0048$x^{2}$-0.17$x$ +18.221&0.0412\\
+    \bottomrule[1.9pt]
+  \end{tabular}   }
+ \end{table}
+```
+## 子图设置
+### 2 x 2 子图1 ：
+```latex
+\begin{figure*}[ht!]
+ \centering
+ \begin{subfigure}{0.49\textwidth}
+  \centering   
+  \includegraphics[width=1\linewidth]{fig1.pdf}
+  \caption{caption\_for\_sub1}
+  \label{fig:sub1}
+ \end{subfigure}   %      \hfill  % 这个\hfill指令为插入弹性长度的空白，看情况选择加不加。
+ \begin{subfigure}{0.49\textwidth}
+  \centering   
+  \includegraphics[width=\linewidth]{fig2.pdf}
+  \caption{caption\_for\_sub2}
+  \label{fig:sub2}
+ \end{subfigure}
+ \begin{subfigure}{0.49\textwidth}
+ \centering   
+ \includegraphics[width=\linewidth]{fig3.pdf}
+ \caption{caption\_for\_sub2}
+ \label{fig:sub2}
+ \end{subfigure}
+ \begin{subfigure}{0.49\textwidth}
+ \centering   
+ \includegraphics[width=\linewidth]{fig4.pdf}
+ \caption{caption\_for\_sub2}
+ \label{fig:sub2}
+ \end{subfigure}
+ \caption{
+  \label{fig:total}
+  write\_caption\_here
+ }
+\end{figure*}
+```
+### 2 x 1 子图：
+使用subfig子图的包
+```latex
+\begin{figure}[h]
+	\centering
+	
+	%----- 子图 1 -----
+	\subfloat[Scenario for $j=0$ \label{fig:RRKj0}]{
+		\includegraphics[width=0.95\textwidth]{RRKj0.png}
+	}
+	
+	\vspace{1cm}
+	
+	%----- 子图 2 -----
+	\subfloat[Scenario for $j>0$ with $j=1$ exemplified \label{fig:RRKj1}]{
+		\includegraphics[width=0.95\textwidth]{RRKj1.png}
+	}
+	
+	\caption{Visual representation of Randomized RK method for different $j$.}
+	\label{fig:combined}
+\end{figure}
+```
+### 2 x 1 子图(一般用这个)：
+使用subcaption
+```latex
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}{0.95\textwidth}
+		\includegraphics[width=\textwidth]{RRKj0.png} 
+		\caption{Scenario for $j=0$}
+		\label{fig:RRKj0}
+	\end{subfigure}
+	
+	\vspace{1cm}
+	
+	\begin{subfigure}{0.95\textwidth}
+		\includegraphics[width=\textwidth]{RRKj1.png} 
+		\caption{Scenario for $j>0$ with $j=1$ exemplified}
+		\label{fig:RRKj1}
+	\end{subfigure}
+	
+	\caption{Visual representation of Randomized RK method for different $j$.}
+	\label{fig:combined}
+\end{figure}
+```
+### 1 x 2 子图
+第一种代码
+```latex
+\begin{figure*}[ht!]
+ \centering
+ \begin{subfigure}{0.49\textwidth}
+  \centering   
+  \includegraphics[width=1\linewidth]{fig1.pdf}
+  \caption{caption\_for\_sub1}
+  \label{fig:sub1}
+ \end{subfigure}   %      \hfill  % 这个\hfill指令为插入弹性长度的空白，看情况选择加不加。
+ \begin{subfigure}{0.49\textwidth}
+  \centering   
+  \includegraphics[width=\linewidth]{fig2.pdf}
+  \caption{caption\_for\_sub2}
+  \label{fig:sub2}
+ \end{subfigure}
+ \caption{
+  \label{fig:total}
+  write\_caption\_here
+ }
+\end{figure*}
+```
+第二种代码：
+```latex
+\begin{figure}[htbp]
+ \centering
+ \begin{minipage}{0.49\linewidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{fig1.pdf}
+  \caption{chutian1}
+  \label{chutian1}%文中引用该图片代号
+ \end{minipage}
+ \begin{minipage}{0.49\linewidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{fig2.pdf}
+  \caption{chutian2}
+  \label{chutian2}%文中引用该图片代号
+ \end{minipage}
+ %\qquad
+ %让图片换行，
+\end{figure}
+```
+### 1 x 3 子图
+```latex
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}{0.325\linewidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{fig1.pdf}
+  \caption{chutian3}
+  \label{chutian3}%文中引用该图片代号
+ \end{subfigure}
+ \centering
+ \begin{subfigure}{0.325\linewidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{fig2.pdf}
+  \caption{chutian3}
+  \label{chutian3}%文中引用该图片代号
+ \end{subfigure}
+ \centering
+ \begin{subfigure}{0.325\linewidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{fig3.pdf}
+  \caption{chutian3}
+  \label{chutian3}%文中引用该图片代号
+ \end{subfigure}
+ \caption{mother of chutian}
+ \label{da_chutian}
+\end{figure}
+```
+### 2 x 2 子图2
+```latex
+\begin{figure}[htbp]
+ \centering
+ \begin{minipage}{0.49\linewidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{fig1.pdf}
+  \caption{chutian1}
+  \label{chutian1}%文中引用该图片代号
+ \end{minipage}
+ \begin{minipage}{0.49\linewidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{fig2.pdf}
+  \caption{chutian2}
+  \label{chutian2}%文中引用该图片代号
+ \end{minipage}
+ %\qquad
+ %让图片换行，
+ 
+ \begin{minipage}{0.49\linewidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{fig3.pdf}
+  \caption{chutian3}
+  \label{chutian3}%文中引用该图片代号
+ \end{minipage}
+ \begin{minipage}{0.49\linewidth}
+ \centering
+ \includegraphics[width=0.9\linewidth]{fig4.pdf}
+ \caption{chutian4}
+ \label{chutian4}%文中引用该图片代号
+\end{minipage}
+\end{figure}
+```
+
+
+
