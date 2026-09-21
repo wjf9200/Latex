@@ -61,8 +61,17 @@
 \numberwithin{figure}{section}
 \numberwithin{table}{section}
 ```
-
-
+把一级标题是阿拉伯数字改为中文的数字;原文为：
+```latex
+% 节标题格式, 居中, 使用\chinese命令修改计数器, \kern 使得数字和内容不至于太远
+\renewcommand\thesection{\arabic{section}.}
+\renewcommand\thesubsection{\arabic{section}\thinspace.\thinspace\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection\thinspace.\thinspace\arabic{subsubsection}}
+```
+改为：
+```latex
+\renewcommand\thesection{\chinese{section}、}
+```
 
 
 
