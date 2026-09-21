@@ -60,6 +60,16 @@
 \numberwithin{equation}{section}
 \numberwithin{figure}{section}
 \numberwithin{table}{section}
+或者：
+% 公式、图片和表格按一级标题分章节编号
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+
+% 强制使用阿拉伯数字，避免受到一级标题中文编号的影响
+\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+\renewcommand{\thefigure}{\arabic{section}.\arabic{figure}}
+\renewcommand{\thetable}{\arabic{section}.\arabic{table}}
 ```
 把一级标题是阿拉伯数字改为中文的数字;原文为：
 ```latex
