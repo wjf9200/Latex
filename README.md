@@ -44,4 +44,33 @@
 \setlength{\parindent}{0pt}
 ```
 
+把公式和图片序号改成2.1、2.1
+原文:
+```latex
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\arabic{section}\thinspace.\thinspace\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection\thinspace.\thinspace\arabic{subsubsection}}
+```
+改成：
+```latex
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\arabic{section}\thinspace.\thinspace\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection\thinspace.\thinspace\arabic{subsubsection}}
+
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+```
+
+
+
+
+
+
+
+
+
+
+
+
 
