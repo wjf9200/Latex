@@ -1,5 +1,10 @@
 # Latex
 
+python解释器的位置：
+```latex
+"E:\APP\Anaconda\python.exe"
+```
+
 ## Latex代码
 ### 对字体进行颜色变换：
 
