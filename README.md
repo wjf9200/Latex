@@ -85,7 +85,21 @@ python解释器的位置：
 ```
 改为：
 ```latex
+\setcounter{secnumdepth}{3}
+\def\@seccntformat#1{\csname the#1\endcsname\ }
+% 节标题格式, 居中, 使用\chinese命令修改计数器, \kern 使得数字和内容不至于太远
 \renewcommand\thesection{\chinese{section}、}
+\renewcommand\thesubsection{\arabic{section}\thinspace.\thinspace\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection\thinspace.\thinspace\arabic{subsubsection}}
+
+% 公式、图片和表格按一级标题分章节编号
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+% 强制使用阿拉伯数字，避免受到一级标题中文编号的影响
+\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+\renewcommand{\thefigure}{\arabic{section}.\arabic{figure}}
+\renewcommand{\thetable}{\arabic{section}.\arabic{table}}
 ```
 
 
