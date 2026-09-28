@@ -103,6 +103,20 @@ python解释器的位置：
 ```
 
 
+给文字增加一个外边框：
+```latex
+\boxed{
+	\begin{aligned}
+		B(x,r):\quad & |y-x|<r
+		&& \text{球内部} \\[4pt]
+		\partial B(x,r):\quad & |y-x|=r
+		&& \text{球面} \\[4pt]
+		\overline{B(x,r)}:\quad & |y-x|\le r
+		&& \text{球内部+球面}
+	\end{aligned}
+}
+```
+
 
 
 
