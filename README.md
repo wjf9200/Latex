@@ -121,7 +121,7 @@ python解释器的位置：
 \AtBeginDocument{%
 	\setlength{\abovedisplayskip}{0pt}
 	\setlength{\belowdisplayskip}{0pt}
-	\setlength{\abovedisplayshortskip}{0pt}
+	\setlength{\abovedisplayshortskip}{2pt}
 	\setlength{\belowdisplayshortskip}{0pt}
 }
 ```
