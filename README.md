@@ -116,8 +116,15 @@ python解释器的位置：
 	\end{aligned}
 }
 ```
-
-
+强制压缩公式上下文直接的距离：
+```latex
+\AtBeginDocument{%
+	\setlength{\abovedisplayskip}{0pt}
+	\setlength{\belowdisplayskip}{0pt}
+	\setlength{\abovedisplayshortskip}{0pt}
+	\setlength{\belowdisplayshortskip}{0pt}
+}
+```
 
 
 
